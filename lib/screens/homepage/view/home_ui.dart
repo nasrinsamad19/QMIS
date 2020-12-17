@@ -30,7 +30,7 @@ class _State extends State<HomeView>{
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.blackadd,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: IconButton(icon: Padding(padding: EdgeInsets.all(7.0),
