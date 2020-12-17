@@ -10,7 +10,7 @@ class Login extends StatefulWidget {
   State<StatefulWidget> createState() => new _State();
 }
 
-class _State  extends State<Login> {
+class _State extends State<Login> {
 
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -25,29 +25,20 @@ class _State  extends State<Login> {
     RegExp regex = new RegExp(pattern);
     print(value);
     if (value.isEmpty) {
-      return 'Please enter password';
-    } else {
-      if (!regex.hasMatch(value))
-        return 'Passwords must contain at least six characters, including uppercase, lowercase letters and numbers.';
+      return 'Please enter Password';
+    }
+    else if(value.length<6){
+      return "Password must contain at least six characters";
+    }
+    else if (!regex.hasMatch(value)) {
+      return 'Password must contain uppercase,lowercase letters and numbers.';
+    }
       else
         return null;
     }
-  }
 
-  String validateUsername(String value) {
-    Pattern pattern =
-        r'^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$';
-    RegExp regex = new RegExp(pattern);
-    print(value);
-    if (value.isEmpty) {
-      return 'Please enter Username';
-    } else {
-      if (!regex.hasMatch(value))
-        return 'Invalid Username';
-      else
-        return null;
-    }
-  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +71,6 @@ class _State  extends State<Login> {
                 child: formSetup(context),
             )
         )
-
     );
   }
   Widget formSetup(BuildContext context){
@@ -100,66 +90,85 @@ class _State  extends State<Login> {
           ),
            TextFormField(
                 controller: nameController,
-                validator: validateUsername,
+                validator: (val){
+                  Pattern pattern =
+                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                  RegExp regex = new RegExp(pattern);
+                  if (val.isEmpty) {
+                    return 'Please enter Username';
+                  } else {
+                    if (!regex.hasMatch(val))
+                      return 'Invalid Username';
+                    else
+                      return null;
+                  }
+                },
                 onSaved: (val)=>_username=val,
-             cursorColor: Colors.black,
-             cursorRadius: Radius.circular(6.0),
+                cursorColor: Colors.black,
+                cursorRadius: Radius.circular(6.0),
                 decoration: InputDecoration(
                   filled: true,
                     fillColor: Colors.white54,
                     border: InputBorder.none,
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red),
+                    ),
                     labelStyle: TextStyle(
                         color: Colors.black87,
-                        fontFamily: 'AvenirLight'
                     ),
-                    suffixIcon: CircleAvatar(child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.rectangle,
-                            image: DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage(
-                                    'assets/images/username.jpg')
-                            )))
-                    )
+                    suffixIcon: Padding(
+                      padding: EdgeInsets.all(10.0),
+                        child: Image.asset(
+                                    'assets/images/username.jpg',
+                        width: 20,
+                        height: 20,
+                        fit: BoxFit.fill,),
+                          )
                 ),
             ),
-          Text('Password', style: TextStyle(
+          Container(
+            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.fromLTRB(0, 0, 10, 5),
+            child: Text('Password', style: TextStyle(
               color: Colors.grey,
               fontSize: 20,
-
-            ),),
-
-           TextFormField(
+            )),
+          ),
+          TextFormField(
               controller: passwordController,
               validator: validatePassword ,
               obscureText: true,
               cursorColor: Colors.black,
-              //cursorWidth: 10,
               cursorRadius: Radius.circular(6.0),
               onSaved: (val)=>_password=val,
               decoration: InputDecoration(
                 filled: true,
                   fillColor: Colors.white54,
                   border: InputBorder.none,
-                  suffixIcon: CircleAvatar(child: Container(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: AssetImage(
-                                  'assets/images/password.jpg')
-                          )))
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                  ),
+                  suffixIcon: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Image.asset(
+                      'assets/images/password.jpg',
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.fill,),
                   )
               ),
             ),
-
           Container(
-            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           ),
            MaterialButton(
                 child: Text('Login', style: TextStyle(fontSize: 20),),
                 textColor: Colors.white,
                 color: Colors.lightBlue,
+                height: 50.0,
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
                     _formKey.currentState.save();
@@ -171,7 +180,6 @@ class _State  extends State<Login> {
                   }
                 },
               )
-
         ],
       )
     );
