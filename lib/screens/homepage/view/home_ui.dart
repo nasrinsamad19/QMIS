@@ -30,21 +30,123 @@ class _State extends State<HomeView>{
         ),
         body: ListView(
           children: [
-            Image(image: AssetImage('assets/images/home_ui/exhibitions.jpg')),
-            Image(image: AssetImage('assets/images/home_ui/museum.jpg')),
-            Image(image: AssetImage('assets/images/home_ui/qatar.jpg')),
+            Container(
+              constraints: BoxConstraints.expand(height: 200.0),
+              padding: EdgeInsets.only(left: 16.0,bottom: 8.0,right: 16.0),
+              decoration: BoxDecoration(
+                  boxShadow:[
+                    BoxShadow(color: Colors.black,
+                        blurRadius: 4)
+                  ],
+                image: DecorationImage(
+                  image:  AssetImage('assets/images/home_ui/exhibitions.jpg'),
+                  fit: BoxFit.cover
+                )
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 0.0,
+                    bottom: 0.0,
+                    child: Text('EXHIBITIONS', style: TextStyle(fontSize: 20,color: Colors.white),),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              constraints: BoxConstraints.expand(height: 200.0),
+              padding: EdgeInsets.only(left: 16.0,bottom: 8.0,right: 16.0),
+              decoration: BoxDecoration(
+                boxShadow:[
+                  BoxShadow(color: Colors.black,
+                  blurRadius: 4)
+                ],
+                  image: DecorationImage(
+                      image:  AssetImage('assets/images/home_ui/museum.jpg'),
+                      fit: BoxFit.cover
+                  )
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 0.0,
+                    bottom: 0.0,
+                    child: Text('NATIONAL MUSEUM OF QATAR', style: TextStyle(fontSize: 20,color: Colors.white),),
+                  ),
+                  Positioned(
+                      right: 0.0,
+                    bottom: 0.0,
+                    child: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
+                    child: Image.asset('assets/images/home_ui/audio.png'),), onPressed: null),)
+                ],
+              ),
+            ),
+            Container(
+              constraints: BoxConstraints.expand(height: 200.0),
+              padding: EdgeInsets.only(left: 16.0,bottom: 8.0,right: 16.0),
+              decoration: BoxDecoration(
+                  boxShadow:[
+                    BoxShadow(color: Colors.black,
+                        blurRadius: 4)
+                  ],
+                  image: DecorationImage(
+                      image:  AssetImage('assets/images/home_ui/islamicart.jpg'),
+                      fit: BoxFit.cover
+                  )
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 0.0,
+                    bottom: 0.0,
+                    child: Text('MUSEUM OF ISLAMIC ART', style: TextStyle(fontSize: 20,color: Colors.white),),
+                  ),
+                  Positioned(
+                    right: 0.0,
+                    bottom: 0.0,
+                    child: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
+                    child: Image.asset('assets/images/home_ui/audio.png'),), onPressed: null),)
+                ],
+              ),
+            ),
+            Container(
+              constraints: BoxConstraints.expand(height: 200.0),
+              padding: EdgeInsets.only(left: 16.0,bottom: 8.0,right: 16.0),
+              decoration: BoxDecoration(
+                  boxShadow:[
+                    BoxShadow(color: Colors.black,
+                        blurRadius: 4)
+                  ],
+                  image: DecorationImage(
+                      image:  AssetImage('assets/images/home_ui/settlements.jpg'),
+                      fit: BoxFit.cover
+                  )
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 0.0,
+                    bottom: 0.0,
+                    child: Text('SETTLEMENTS', style: TextStyle(fontSize: 20,color: Colors.white),),
+                  ),
+                  Positioned(
+                    right: 0.0,
+                    bottom: 0.0,
+                    child: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
+                      child: Image.asset('assets/images/home_ui/audio.png'),), onPressed: null),)
+                ],
+              ),
+            ),
                       ],
-
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          iconSize: 1,
-          backgroundColor: Colors.black54,
+          backgroundColor: Colors.grey[800],
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
+              icon: IconButton(icon: Padding(padding: EdgeInsets.only(left: 1.0,bottom: 1.0,right: 1.0),
                 child: Image.asset('assets/images/home_ui/restaurant.png'),), onPressed: null),
-              title: Text("Dining",style: TextStyle(color: Colors.white,fontSize: 13),),
+              title: Text("Dining",style: TextStyle(color: Colors.white,fontSize: 11),),
             ),
             BottomNavigationBarItem(
               icon: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
