@@ -31,14 +31,11 @@ class _State extends State<Login> {
       return "Password must contain at least six characters";
     }
     else if (!regex.hasMatch(value)) {
-      return 'Password must contain uppercase and lowercase letters,numbers and special characters.';
+      return 'Password must contain uppercase and lowercase letters, numbers and special characters.';
     }
       else
         return null;
     }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -118,8 +115,7 @@ class _State extends State<Login> {
                     ),
                     suffixIcon: Padding(
                       padding: EdgeInsets.all(10.0),
-                        child: Image.asset(
-                                    'assets/images/username.jpg',
+                        child: Image.asset('assets/images/username.jpg',
                         width: 20,
                         height: 20,
                         fit: BoxFit.fill,),
@@ -154,8 +150,7 @@ class _State extends State<Login> {
                   ),
                   suffixIcon: Padding(
                     padding: EdgeInsets.all(10.0),
-                    child: Image.asset(
-                      'assets/images/password.jpg',
+                    child: Image.asset('assets/images/password.jpg',
                       width: 20,
                       height: 20,
                       fit: BoxFit.fill,),
