@@ -148,6 +148,7 @@ class _State extends State<Login> {
                 filled: true,
                   fillColor: Colors.white54,
                   border: InputBorder.none,
+                  errorMaxLines: 2,
                   errorBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.red),
                   ),
