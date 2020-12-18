@@ -30,7 +30,9 @@ class _State extends State<HomeView>{
         ),
         body: ListView(
           children: [
-            Image(image: AssetImage('')),
+            Image(image: AssetImage('assets/images/home_ui/exhibitions.jpg')),
+            Image(image: AssetImage('assets/images/home_ui/museum.jpg')),
+            Image(image: AssetImage('assets/images/home_ui/qatar.jpg')),
                       ],
 
         ),
