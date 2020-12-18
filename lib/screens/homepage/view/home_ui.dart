@@ -28,29 +28,36 @@ class _State extends State<HomeView>{
             Container(padding: EdgeInsets.fromLTRB(10, 5, 10, 5),),
           ],
         ),
+        body: ListView(
+          children: [
+            Image(image: AssetImage('')),
+                      ],
+
+        ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.blackadd,
+          iconSize: 1,
+          backgroundColor: Colors.black54,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: IconButton(icon: Padding(padding: EdgeInsets.all(7.0),
+              icon: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
                 child: Image.asset('assets/images/home_ui/restaurant.png'),), onPressed: null),
-              title: Text("Dining"),
+              title: Text("Dining",style: TextStyle(color: Colors.white,fontSize: 13),),
             ),
             BottomNavigationBarItem(
-              icon: IconButton(icon: Padding(padding: EdgeInsets.all(7.0),
+              icon: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
                 child: Image.asset('assets/images/home_ui/gift_shop.png'),), onPressed: null),
-              title: Text("Gift Shop"),
+              title: Text("Gift Shop",style: TextStyle(color: Colors.white,fontSize: 13)),
             ),
             BottomNavigationBarItem(
-              icon: IconButton(icon: Padding(padding: EdgeInsets.all(7.0),
+              icon: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
                 child: Image.asset('assets/images/home_ui/culture_pass.png'),), onPressed: null),
-              title: Text("Culture Pass"),
+              title: Text("Culture Pass",style: TextStyle(color: Colors.white,fontSize: 13)),
             ),
             BottomNavigationBarItem(
-              icon: IconButton(icon: Padding(padding: EdgeInsets.all(7.0),
+              icon: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
                 child: Image.asset('assets/images/home_ui/more.png'),), onPressed: null),
-              title: Text("More"),
+              title: Text("More",style: TextStyle(color: Colors.white,fontSize: 13)),
             ),
           ],
           onTap:null ,),
