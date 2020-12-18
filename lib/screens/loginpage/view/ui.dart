@@ -31,7 +31,7 @@ class _State extends State<Login> {
       return "Password must contain at least six characters";
     }
     else if (!regex.hasMatch(value)) {
-      return 'Password must contain uppercase and lowercase letters,numbers and special characters.BkzjsBCKjbJSK:dB,NCSDNSLDVNSLDNVLSDVN';
+      return 'Password must contain uppercase and lowercase letters,numbers and special characters.';
     }
       else
         return null;
