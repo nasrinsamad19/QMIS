@@ -64,7 +64,7 @@ class _State extends State<Login> {
                 constraints: BoxConstraints.expand(),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/images/bg.jpg'),
+                        image: AssetImage('assets/images/login_ui/bg.jpg'),
                         fit: BoxFit.cover
                     )
                 ),
@@ -119,7 +119,7 @@ class _State extends State<Login> {
                     suffixIcon: Padding(
                       padding: EdgeInsets.all(10.0),
                         child: Image.asset(
-                                    'assets/images/username.jpg',
+                                    'assets/images/login_ui/username.jpg',
                         width: 20,
                         height: 20,
                         fit: BoxFit.fill,),
@@ -154,7 +154,7 @@ class _State extends State<Login> {
                   suffixIcon: Padding(
                     padding: EdgeInsets.all(10.0),
                     child: Image.asset(
-                      'assets/images/password.jpg',
+                      'assets/images/login_ui/password.jpg',
                       width: 20,
                       height: 20,
                       fit: BoxFit.fill,),
