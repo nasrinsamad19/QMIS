@@ -23,7 +23,6 @@ class _State extends State<Login> {
     Pattern pattern =
         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
     RegExp regex = new RegExp(pattern);
-    print(value);
     if (value.isEmpty) {
       return 'Please enter Password';
     }
