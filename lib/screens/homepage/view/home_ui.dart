@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:qmis/screens/homepage/view/side_menu_ui.dart';
 
 class HomeView extends StatefulWidget{
   @override
@@ -24,7 +25,9 @@ class _State extends State<HomeView>{
               child: Image.asset('assets/images/home_ui/profile.png'),), onPressed: null),
             Container(padding: EdgeInsets.fromLTRB(15, 5, 15, 5),),
             IconButton(icon: Padding(padding: EdgeInsets.all(7.0),
-              child: Image.asset('assets/images/home_ui/side_menu_icon.png'),), onPressed: null),
+              child: Image.asset('assets/images/home_ui/side_menu_icon.png'),), onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> side_menu()));
+            }),
             Container(padding: EdgeInsets.fromLTRB(10, 5, 10, 5),),
           ],
         ),

@@ -64,8 +64,19 @@ flutter:
       - assets/images/home_ui/exhibitions.jpg
       - assets/images/home_ui/settlements.jpg
       - assets/images/home_ui/islamicart.jpg
-
-
+      - assets/images/side_menu/closeX3_shadow.png
+      - assets/images/side_menu/educationX3.png
+      - assets/images/side_menu/eventsX3.png
+      - assets/images/side_menu/exhibitionX3.png
+      - assets/images/side_menu/exhibitionX3 - Copy.png
+      - assets/images/side_menu/exploreX3.png
+      - assets/images/side_menu/gift_shopX3.png
+      - assets/images/side_menu/heritageX3.png
+      - assets/images/side_menu/parkX3.png
+      - assets/images/side_menu/public_artsX3.png
+      - assets/images/side_menu/restaurantX3.png
+      - assets/images/side_menu/settingsX3.png
+      - assets/images/side_menu/tour_guideX3.png
 
 
 
