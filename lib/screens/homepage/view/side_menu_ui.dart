@@ -1,5 +1,7 @@
 
 
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,7 @@ class side_menu extends StatelessWidget{
     return Stack(
       children: [
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.transparent.withOpacity(0.8),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             actions: [
@@ -20,21 +22,23 @@ class side_menu extends StatelessWidget{
               Container(padding: EdgeInsets.fromLTRB(10, 5, 10, 5),),
             ],
           ),
-          body: Container(
-            child:  GridView.count(
-                crossAxisCount: 3,
-                mainAxisSpacing: 140,
-                crossAxisSpacing: 0,
-                children: List.generate(choices.length, (index) {
-                  return Center(
-                    child: IconGridView(choice: choices[index]),
-                  );
+          body:BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
+            child:Container(
+              child:  GridView.count(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 140,
+                  crossAxisSpacing: 0,
+                  children: List.generate(choices.length, (index) {
+                    return Center(
+                      child: IconGridView(choice: choices[index]),
+                    );
 
-                }
-                )
+                  }
+                  )
+              ),
             ),
           ),
-
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             backgroundColor: Colors.transparent,
@@ -47,7 +51,6 @@ class side_menu extends StatelessWidget{
                 icon: IconButton(icon: Padding(padding: EdgeInsets.all(4.0),
                   child: Image.asset('assets/images/side_menu/settingsX3.png'),), onPressed: null),
                 title: Text("Settings",style: TextStyle(color: Colors.white,fontSize: 13)),
-
               ),
 
             ],
@@ -71,7 +74,8 @@ class Choice {
   @override
   Widget build(BuildContext context) {
   return Card(
-  color: Colors.transparent,
+    color: Colors.transparent,
+    elevation: 0,
     margin: EdgeInsets.symmetric(vertical: 40,horizontal: 40,),
   child: Center(
   child: Column(
