@@ -1,13 +1,9 @@
-
-
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class side_menu extends StatelessWidget{
   @override
-
 
   Widget build(BuildContext context) {
     return Stack(
@@ -16,49 +12,64 @@ class side_menu extends StatelessWidget{
           backgroundColor: Colors.transparent.withOpacity(0.8),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
+            automaticallyImplyLeading: false,
             actions: [
               IconButton(icon: Padding(padding: EdgeInsets.all(9.0),
-                child: Image.asset('assets/images/side_menu/closeX3_shadow.png'),), onPressed: null),
+                child: Image.asset('assets/images/side_menu/closeX3_shadow.png'),), onPressed: (){
+                Navigator.pop(context);
+              }),
               Container(padding: EdgeInsets.fromLTRB(10, 5, 10, 5),),
             ],
           ),
-          body:BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
-            child:Container(
-              child:  GridView.count(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 140,
-                  crossAxisSpacing: 0,
-                  children: List.generate(choices.length, (index) {
-                    return Center(
-                      child: IconGridView(choice: choices[index]),
-                    );
-
-                  }
-                  )
-              ),
-            ),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.transparent,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: IconButton(icon :Image.asset('assets/images/side_menu/q.jpg'), onPressed: null),
-                title: Text(''),
-              ),
-              BottomNavigationBarItem(
-                icon: IconButton(icon: Padding(padding: EdgeInsets.all(4.0),
-                  child: Image.asset('assets/images/side_menu/settingsX3.png'),), onPressed: null),
-                title: Text("Settings",style: TextStyle(color: Colors.white,fontSize: 13)),
-              ),
-
+          body:Stack(
+            children: [
+              BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
+                child:Container(
+                  child:GridView.count(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 140,
+                    crossAxisSpacing: 0,
+                    children: List.generate(choices.length, (index) {
+                      return Center(
+                        child: IconGridView(choice: choices[index]),
+                      );
+                    }
+                    ),
+                  ),
+                  ),
+                ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  child:Container(
+                    height: 1.0,
+                    width: 372.0,
+                    color: Colors.white24,
+                  ),),
+              )
             ],
-            onTap:null ,),
+          ),
+          bottomNavigationBar: Container(
+            child: BottomNavigationBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Container(child:IconButton(icon: Image.asset('assets/images/side_menu/qatar_museumx3.png',width: 180,height: 70,fit: BoxFit.fill,),),padding: EdgeInsets.only(bottom: 10),width: 180,height: 70,),
+                  title: Container(height: 0.0,),
+                ),
+                BottomNavigationBarItem(
+                  icon:Container(child:IconButton(icon: Image.asset('assets/images/side_menu/settingsX3.png',height: 25,width: 25,), onPressed: null,),padding: EdgeInsets.only(right: 20),alignment: Alignment.bottomRight),
+                  title: Container(child:Text("Settings",style: TextStyle(color: Colors.white,fontSize: 12)),padding: EdgeInsets.only(right: 10),alignment: Alignment.bottomRight),
+                ),
+              ],
+              onTap:null ,
+            ),
+    ),
         )
       ],
     );
-
   }
 }
 
@@ -67,6 +78,7 @@ class Choice {
   final String title;
   final String image;
 }
+
   class IconGridView extends StatelessWidget{
   Choice choice;
   IconGridView({Key key,this.choice}):super(key:key);
@@ -76,18 +88,16 @@ class Choice {
   return Card(
     color: Colors.transparent,
     elevation: 0,
-    margin: EdgeInsets.symmetric(vertical: 40,horizontal: 40,),
-  child: Center(
-  child: Column(
-  mainAxisAlignment: MainAxisAlignment.center,
-  crossAxisAlignment: CrossAxisAlignment.center,
-  children:<Widget> [
-  Expanded(child: IconButton(icon: Image.asset(choice.image,height: 80,width: 80,), color: Colors.white,),
-  ),
-  Text(choice.title,style: TextStyle(color: Colors.white,fontSize: 9), textAlign: TextAlign.center),
-  ],
-  ),
-  ),
+    child: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children:<Widget> [
+          IconButton(icon: Image.asset(choice.image), color: Colors.white,iconSize: 45,),
+          Text(choice.title,style: TextStyle(color: Colors.white,fontSize: 12), textAlign: TextAlign.center),
+        ],
+      ),
+    ),
   );
   }
   }
