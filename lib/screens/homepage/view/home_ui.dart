@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:qmis/screens/homepage/view/culture_pass_ui.dart';
 import 'package:qmis/screens/homepage/view/side_menu_ui.dart';
 
 class HomeView extends StatefulWidget{
@@ -158,7 +159,9 @@ class _State extends State<HomeView>{
             ),
             BottomNavigationBarItem(
               icon: IconButton(icon: Padding(padding: EdgeInsets.all(1.0),
-                child: Image.asset('assets/images/home_ui/culture_pass.png'),), onPressed: null),
+                child: Image.asset('assets/images/home_ui/culture_pass.png'),), onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> culture_pass()));    }
+              ),
               title: Text("Culture Pass",style: TextStyle(color: Colors.white,fontSize: 13)),
             ),
             BottomNavigationBarItem(
