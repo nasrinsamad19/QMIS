@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:qmis/screens/homepage/view/culture_pass_ui.dart';
 import 'package:qmis/screens/homepage/view/side_menu_ui.dart';
 
@@ -7,6 +8,10 @@ class HomeView extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => new _State();
 
+}
+Future main() async{
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(HomeView());
 }
 class _State extends State<HomeView>{
   @override

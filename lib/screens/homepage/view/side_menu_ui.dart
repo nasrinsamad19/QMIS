@@ -1,7 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+Future main() async{
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(side_menu());
+}
 class side_menu extends StatelessWidget{
   @override
 
@@ -28,7 +32,7 @@ class side_menu extends StatelessWidget{
                 child:Container(
                   child:GridView.count(
                     crossAxisCount: 3,
-                    mainAxisSpacing: 140,
+                    mainAxisSpacing: 100,
                     crossAxisSpacing: 0,
                     children: List.generate(choices.length, (index) {
                       return Center(
@@ -39,35 +43,35 @@ class side_menu extends StatelessWidget{
                   ),
                   ),
                 ),
-              Align(
-                alignment: Alignment.bottomCenter,
+              Container(
+                padding: EdgeInsets.only(top: 670,left: 10,right: 10),
                 child: Padding(padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child:Container(
                     height: 1.0,
-                    width: 372.0,
+                    width: 370.0,
                     color: Colors.white24,
                   ),),
-              )
+              ),
             ],
           ),
-          bottomNavigationBar: Container(
+            bottomNavigationBar: Container(
             child: BottomNavigationBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Container(child:IconButton(icon: Image.asset('assets/images/side_menu/qatar_museumx3.png',width: 180,height: 70,fit: BoxFit.fill,),),padding: EdgeInsets.only(bottom: 10),width: 180,height: 70,),
-                  title: Container(height: 0.0,),
-                ),
-                BottomNavigationBarItem(
-                  icon:Container(child:IconButton(icon: Image.asset('assets/images/side_menu/settingsX3.png',height: 25,width: 25,), onPressed: null,),padding: EdgeInsets.only(right: 20),alignment: Alignment.bottomRight),
-                  title: Container(child:Text("Settings",style: TextStyle(color: Colors.white,fontSize: 12)),padding: EdgeInsets.only(right: 10),alignment: Alignment.bottomRight),
-                ),
-              ],
-              onTap:null ,
-            ),
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+    items: <BottomNavigationBarItem>[
+    BottomNavigationBarItem(
+    icon: Container(child:IconButton(icon: Image.asset('assets/images/side_menu/qatar_museumx3.png',width: 180,height: 70,fit: BoxFit.fill,),),padding: EdgeInsets.only(bottom: 10),width: 180,height: 70,),
+    title: Container(height: 0.0,),
+    ),
+    BottomNavigationBarItem(
+      icon:Container(child:IconButton(icon: Image.asset('assets/images/side_menu/settingsX3.png',height: 25,width: 25,), onPressed: null,),padding: EdgeInsets.only(right: 20,bottom: 0),alignment: Alignment.bottomRight),
+    title: Container(child:Text("Settings",style: TextStyle(color: Colors.white,fontSize: 12 )),padding: EdgeInsets.only(right: 10),alignment: Alignment.bottomRight),
+    ),
+    ],
+    onTap:null ,
     ),
         )
+        ),
       ],
     );
   }
