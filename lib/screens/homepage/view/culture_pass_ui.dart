@@ -122,7 +122,6 @@ class culture_pass extends StatelessWidget {
                         width: 380,
                         child: MaterialButton(
                           color: Colors.black,
-                          
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0),
                               side: BorderSide(color: Colors.black)
                           ),

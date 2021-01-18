@@ -29,28 +29,34 @@ class side_menu extends StatelessWidget{
             children: [
               BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
-                child:Container(
-                  child:GridView.count(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 100,
-                    crossAxisSpacing: 0,
-                    children: List.generate(choices.length, (index) {
-                      return Center(
-                        child: IconGridView(choice: choices[index]),
-                      );
-                    }
+                child:AspectRatio(
+                  aspectRatio: 100/150,
+                  child: Container(
+                    child:GridView.count(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 100,
+                      crossAxisSpacing: 0,
+                      children: List.generate(choices.length, (index) {
+                        return Center(
+                          child: IconGridView(choice: choices[index]),
+                        );
+                      }
+                      ),
                     ),
                   ),
                   ),
                 ),
               Container(
-                padding: EdgeInsets.only(top: 670,left: 10,right: 10),
-                child: Padding(padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  child:Container(
-                    height: 1.0,
-                    width: 370.0,
-                    color: Colors.white24,
-                  ),),
+                padding: EdgeInsets.only(left: 10,right: 10),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child:  Padding(padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child:Container(
+                      height: 1.0,
+                      width: 370.0,
+                      color: Colors.white24,
+                    ),),
+                )
               ),
             ],
           ),
@@ -60,12 +66,32 @@ class side_menu extends StatelessWidget{
     backgroundColor: Colors.transparent,
     items: <BottomNavigationBarItem>[
     BottomNavigationBarItem(
-    icon: Container(child:IconButton(icon: Image.asset('assets/images/side_menu/qatar_museumx3.png',width: 180,height: 70,fit: BoxFit.fill,),),padding: EdgeInsets.only(bottom: 10),width: 180,height: 70,),
+    icon: Container(child:IconButton(icon: Image.asset('assets/images/side_menu/qatar_museumx3.png',width: 178,height: 70,fit: BoxFit.fill,),),padding: EdgeInsets.only(bottom: 10),width: 180,height: 70,),
     title: Container(height: 0.0,),
     ),
     BottomNavigationBarItem(
-      icon:Container(child:IconButton(icon: Image.asset('assets/images/side_menu/settingsX3.png',height: 25,width: 25,), onPressed: null,),padding: EdgeInsets.only(right: 20,bottom: 0),alignment: Alignment.bottomRight),
-    title: Container(child:Text("Settings",style: TextStyle(color: Colors.white,fontSize: 12 )),padding: EdgeInsets.only(right: 10),alignment: Alignment.bottomRight),
+      icon: Container(
+        alignment: Alignment.bottomRight,
+    child: Column(children: [
+      Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                alignment: Alignment.bottomRight,
+                image: AssetImage('assets/images/side_menu/settingsX3.png'))
+        ),
+
+        height: 30,
+        width: 20,
+        //padding: EdgeInsets.fromLTRB(20,0,20,0)
+      ),
+      Container(
+        padding: EdgeInsets.only(left: 20,right: 20,top: 0),
+        child: Text("Settings",style: TextStyle(color: Colors.white,fontSize: 11
+        )),
+      )
+    ],),
+    ),
+    title: Container(height: 0.0,),
     ),
     ],
     onTap:null ,
